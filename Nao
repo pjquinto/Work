@@ -1,12 +1,9 @@
+topic: ~NaoQA()
+language: enu
 
+# Defining needed concepts, keywords or sentences corresponding to a concept.
+concept:(yes) [yes "all right" sure "why not" ok certainly "very well" yep yea definitely amen]
 
-# Library and Location Concepts
-concept:(foster) [foster "camp foster" "the camp foster library" "camp foster Library" "foster library"]
-concept:(hansen) [hansen "camp hansen" "the camp hansen library" "camp hansen Library" "hansen library"]
-concept:(kinser) [kinser "camp kinser" "the camp kinser library" "camp kinser Library" "kinser library"]
-concept:(futenma) [futenma "MCAS futenma" "MCAS futenma library" "camp futenma Library" "futenma library"]
-concept:(courtney) [courtney "camp courtney" "the camp courtney library" "camp courtney Library" "courtney library"]
-concept:(schwab) [schwab "camp schwab" "the camp schwab library" "camp schwab Library" "schwab library"]
 
 #Equipment Concepts
 concept:(music) [music "music equipment" instruments]
@@ -19,14 +16,22 @@ concept:(computers) [computers laptops]
 concept:(software) [software adobe]
 concept:(laminating) [laminating "2D printers"]
 
+concept:(books) [books book]
+concept:(DVD) [DVD DVDs]
+concept:(CD) [CD CDs]
+concept:(audio) ["audio books" "audio book"]
+concept:(playaway) [playaway playaways]
+concept:(games) [games "video games"]
 
 
-u:("What type of equipment is available?") We have music equipment, 3-D printers, cutting machines, sewing machines, robots, electronics, computers, software, and printing and laminating services)
+
+u:("What type of equipment is available?") We have music equipment, 3-D printers, cutting machines, sewing machines, robots, electronics, computers, software, and printing and laminating services.
 
 
 #Equipment Block
+#This block focuses on the innovation lab equipment available for guests to use.
 
-concept:(libequipment)["Can you show me more information on the library equipment?"]
+concept:(libequipment)["Do you have more information on the library equipment?" "Can you show me more information on the library equipment?"]
 
 u:(~libequipment) ~yes ^gotoReactivate(equipment)
 proposal: %equipment Which equipment would you like to know more about?
@@ -42,27 +47,20 @@ proposal: %equipment Which equipment would you like to know more about?
     u1:(~laminating) Our 2-D printing and laminating services consists of: Epson Large-Format printer and Large laminator.
  
  
-#Location Block
+#Policy Block
+#This block focuses on the library policies and the maximum items that can be checked out.
 
-concept:(libequipment)["Can you show me more information on the library equipment?"]
+concept:(libpolicy)["Do you have checkout policies?" "Can you show me the checkout policies?"]
 
-u:(~libequipment) ~yes ^gotoReactivate(equipment)
-proposal: %equipment Which equipment would you like to know more about?
+u:(~libpolicy) ~yes ^gotoReactivate(policy)
+proposal: %policy What are you trying to check out?
 
-    u1:(~music) Our music equipment consists of: Yamaha acoustic guitar, Alesis Midi drum set, Korg digital piano, Yamaha electronic drum kit, Moog grandmother synthesizer, portable wireless loudspeaker.                                                        
-    u1:(~printing) Our 3-D printing equipment consists of: Lulzbot Taz6 and Fusion3.
-    u1:(~cutting) Our cutting machines consists of: Roland GS-24 vinyl cutter, ScanNCut 2, Silver Bullet professional series.
-    u1:(~sewing) Our sewing machines consists of: Singer embroidery machine.
-    u1:(~robots) Our robots consists of: Jimu robots, Ozobots classroom set, Lego Mindstorm, Aldeberan Nao robot, and Makeblock robot.
-    u1:(~electronics) Our electronics consists of: Oculus Rift VR headset, Playstation 4 VR, Makey Makey, Arduino kits, Little Bits Pro Library, iPads, GoPro, Microsoft Hololens.
-    u1:(~computers) Our computers consists of: Apple iMac, Kano computers, Raspberry Pi 3.
-    u1:(~software) Our software consists of: Adobe Creative Cloud, Ableton Live 10 Suite Music, Logic Pro, Rhino 3D Modeling, Sketchup 3D Modeling.
-    u1:(~laminating) Our 2-D printing and laminating services consists of: Epson Large-Format printer and Large laminator.
+    u1:(~books) You can check out unlimited books.
+    u1:(~DVD) You can check out 10 DVDs per family.
+    u1:(~CD) You can check out 10 CDs per family.
+    u1:(~audio) You can check out 10 audio books per family. 
+    u1:(~playaway) You can check out 10 playaways per family.
+    u1:(~games) You can check out 2 video games per family.
     
     
-    
-    
-    
-    
-    
-    
+ 
